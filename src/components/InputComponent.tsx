@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
 import { styles } from '../../theme/appTheme';
 import { View } from 'react-native';
@@ -16,7 +16,13 @@ interface Props {
 }
 
 export const InputComponent = ({ placeholder, secureTextEntry, handleSetValues, name, isPassword = false, setHiddenPassword, hasIcon }: Props) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  
+  const tooglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  }
   return (
+
     <View>
       {
         (hasIcon)
@@ -25,13 +31,14 @@ export const InputComponent = ({ placeholder, secureTextEntry, handleSetValues, 
             size={24}
             color='black'
             style={styles.iconpassword}
-            onPress={setHiddenPassword}
+            onPress={tooglePasswordVisibility}
+            onPressOut={setHiddenPassword}
           />
           : null
       }
     <TextInput
       placeholder={placeholder}
-      secureTextEntry={secureTextEntry}
+      secureTextEntry={secureTextEntry && !isPasswordVisible}
       onChangeText={(value) => handleSetValues(name, value)}
       keyboardType= 'default'
       style={styles.inputText}
