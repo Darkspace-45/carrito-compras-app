@@ -37,10 +37,6 @@ export const LoginScreen = () => {
   //función para iniciar sesión
   const handleLogin = () => {
     console.log(formLogin);
-    Snackbar.show({
-      text: 'Hello world',
-      duration: Snackbar.LENGTH_SHORT,
-    });
   }
 
   return (
