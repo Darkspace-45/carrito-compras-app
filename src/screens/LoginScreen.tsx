@@ -37,6 +37,10 @@ export const LoginScreen = () => {
   //función para iniciar sesión
   const handleLogin = () => {
     console.log(formLogin);
+    Snackbar.show({
+      text: 'Hello world',
+      duration: Snackbar.LENGTH_SHORT,
+    });
   }
 
   return (
@@ -59,7 +63,7 @@ export const LoginScreen = () => {
             name='password' 
             secureTextEntry 
             setHiddenPassword={() => setHiddenPassword(!hiddenPassword)} 
-            isPassword={hiddenPassword} />
+            isPassword={hiddenPassword} hasIcon/>
         </View>
         <ButtonComponent textButton='Acceder' onPress={handleLogin}/>
       </BodyComponent>
