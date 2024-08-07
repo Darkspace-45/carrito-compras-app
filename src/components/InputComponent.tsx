@@ -40,7 +40,7 @@ export const InputComponent = ({ placeholder, secureTextEntry, handleSetValues, 
       placeholder={placeholder}
       secureTextEntry={secureTextEntry && !isPasswordVisible}
       onChangeText={(value) => handleSetValues(name, value)}
-      keyboardType= 'default'
+      keyboardType= 'email-address'
       style={styles.inputText}
     />  
     </View>
